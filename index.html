@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Repair Help | Phone, Tablet & Console Repair in Barrie, ON</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#dc2626', // High contrast red (red-600)
+                        secondary: '#b91c1c', // Darker red for hover states (red-700)
+                        dark: '#111827', // Very dark gray for text
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Open Graph / WhatsApp Preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="For Repair Help | Barrie, ON & Surrounding Areas">
+    <meta property="og:description" content="Fast, Honest Repairs for Cell Phones, Tablets & Gaming Consoles in Barrie, ON and surrounding areas.">
+    <meta property="og:url" content="https://forrepair.help/">
+    <!-- FontAwesome for recognizable icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Font for Handwritten Note Simulation -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Ensuring baseline text is large and highly legible */
+        html {
+            font-size: 100%; /* Base size, controlled by JS for accessibility */
+            transition: font-size 0.3s ease;
+        }
+        body {
+            font-size: 1.125rem; /* 18px base text */
+            line-height: 1.75;
+            color: #111827;
+        }
+        h1, h2, h3 {
+            color: #000000;
+        }
+
+        /* Handwritten Font Styling for Sample Repair Sheets */
+        .handwritten-note {
+            font-family: 'Caveat', cursive, sans-serif;
+            font-size: 1.4rem;
+            line-height: 1.35;
+            color: #991b1b; /* Deep red ink */
+        }
+
+        /* High Contrast Mode Styles */
+        body.hc-mode {
+            background-color: #000000 !important;
+            color: #ffff00 !important; /* Yellow on black is ideal for high contrast reading */
+        }
+        body.hc-mode section, body.hc-mode header, body.hc-mode nav, body.hc-mode footer, body.hc-mode .bg-white, body.hc-mode .bg-red-50, body.hc-mode .bg-gray-100, body.hc-mode .bg-gray-50, body.hc-mode .bg-gray-800, body.hc-mode .bg-green-100, body.hc-mode .bg-red-100 {
+            background-color: #000000 !important;
+            border-color: #ffff00 !important;
+        }
+        body.hc-mode h1, body.hc-mode h2, body.hc-mode h3, body.hc-mode h4, body.hc-mode p, body.hc-mode a, body.hc-mode span, body.hc-mode strong, body.hc-mode i, body.hc-mode label, body.hc-mode div, body.hc-mode li, body.hc-mode .handwritten-note {
+            color: #ffff00 !important;
+        }
+        body.hc-mode .bg-primary, body.hc-mode .bg-secondary, body.hc-mode button[type="submit"], body.hc-mode .slide-tab-active {
+            background-color: #ffff00 !important;
+            color: #000000 !important;
+            border: 2px solid #ffff00 !important;
+        }
+        body.hc-mode .slide-tab-active span, body.hc-mode .slide-tab-active i {
+            color: #000000 !important;
+        }
+        body.hc-mode input, body.hc-mode select, body.hc-mode textarea {
+            background-color: #000000 !important;
+            color: #ffff00 !important;
+            border: 2px solid #ffff00 !important;
+        }
+    </style>
+    
+    <script>
+        // Accessibility Functions
+        let textEnlarged = false;
+        
+        function toggleTextSize() {
+            const htmlTag = document.documentElement;
+            if (!textEnlarged) {
+                htmlTag.style.fontSize = '125%'; // Increases all em/rem based text sizing
+                textEnlarged = true;
+            } else {
+                htmlTag.style.fontSize = '100%';
+                textEnlarged = false;
+            }
+        }
+
+        function toggleHighContrast() {
+            document.body.classList.toggle('hc-mode');
+        }
+
+        // Slideshow Logic (3 Filled Repair Ticket Samples)
+        let currentNoteSlide = 0;
+        const totalNoteSlides = 3;
+
+        function showNoteSlide(index) {
+            if (index < 0) index = totalNoteSlides - 1;
+            if (index >= totalNoteSlides) index = 0;
+            currentNoteSlide = index;
+
+            for (let i = 0; i < totalNoteSlides; i++) {
+                const slideEl = document.getElementById('note-slide-' + i);
+                const tabEl = document.getElementById('note-tab-' + i);
+                if (slideEl) {
+                    slideEl.classList.toggle('hidden', i !== currentNoteSlide);
+                }
+                if (tabEl) {
+                    if (i === currentNoteSlide) {
+                        tabEl.className = "slide-tab-active bg-primary text-white font-extrabold px-5 py-3 rounded-xl shadow-md border-2 border-primary transition flex items-center gap-2 text-lg";
+                    } else {
+                        tabEl.className = "bg-white hover:bg-red-50 text-gray-800 font-bold px-5 py-3 rounded-xl shadow-sm border-2 border-gray-300 transition flex items-center gap-2 text-lg";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-sans antialiased">
+
+    <!-- Accessibility Bar -->
+    <div class="bg-gray-800 text-white px-4 py-2 flex flex-wrap justify-center sm:justify-end gap-4 items-center z-50 relative">
+        <span class="text-sm font-bold mr-auto hidden md:block">Accessibility Tools:</span>
+        <button onclick="toggleTextSize()" class="bg-gray-700 hover:bg-gray-600 border border-gray-500 px-4 py-2 rounded text-lg font-bold transition flex items-center gap-2" aria-label="Increase text size">
+            <i class="fas fa-search-plus"></i> <span id="text-size-btn-text">Toggle Larger Text</span>
+        </button>
+        <button onclick="toggleHighContrast()" class="bg-yellow-400 text-black hover:bg-yellow-500 border border-yellow-600 px-4 py-2 rounded text-lg font-bold transition flex items-center gap-2" aria-label="Enable high contrast mode">
+            <i class="fas fa-adjust"></i> High Contrast Mode
+        </button>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="bg-white shadow-md sticky top-0 z-40 border-b-2 border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-24">
+                <div class="flex items-center">
+                    <a href="#home" class="flex items-center gap-3">
+                        <!-- Simplified Clean FRH Logo -->
+                        <div class="flex items-center justify-center bg-primary text-white font-extrabold text-2xl h-14 w-14 rounded-xl shadow-md border-2 border-red-700">
+                            FRH
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-black text-2xl text-dark tracking-tight leading-none">FOR REPAIR HELP</span>
+                            <span class="text-xs font-bold text-gray-500 uppercase tracking-widest leading-none mt-1">Phones • Tablets • Consoles</span>
+                        </div>
+                    </a>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-6">
+                    <a href="#about" class="text-lg font-bold text-gray-700 hover:text-primary transition focus:underline">About</a>
+                    <a href="#devices" class="text-lg font-bold text-gray-700 hover:text-primary transition focus:underline">Devices We Fix</a>
+                    <a href="#services" class="text-lg font-bold text-gray-700 hover:text-primary transition focus:underline">Common Repairs</a>
+                    <a href="#value" class="text-lg font-bold text-gray-700 hover:text-primary transition focus:underline">Our Promise</a>
+                    <a href="#sample-notes" class="text-lg font-bold text-gray-700 hover:text-primary transition focus:underline">Repair Reports</a>
+                    <a href="#faq" class="text-lg font-bold text-gray-700 hover:text-primary transition focus:underline">FAQ</a>
+                    <a href="#contact" class="bg-primary hover:bg-secondary text-white text-lg font-bold py-3 px-6 rounded-lg shadow-lg transition border-2 border-transparent focus:border-black focus:outline-none focus:ring-4 focus:ring-red-300">Get a Repair Quote</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section (Home) -->
+    <header id="home" class="bg-red-50 py-20 lg:py-28">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2 space-y-6">
+                <div class="inline-flex items-center gap-2 bg-red-100 border-2 border-primary text-primary px-4 py-2 rounded-full font-bold text-lg shadow-sm">
+                    <i class="fas fa-tools"></i> Proudly Serving Barrie, ON & Surrounding Areas
+                </div>
+                <h1 class="text-4xl lg:text-6xl font-extrabold leading-tight">Fast, Honest Repairs for Your Everyday Devices.</h1>
+                <p class="text-xl lg:text-2xl text-gray-800 font-medium">Cracked screen? Dead battery? Broken HDMI port? We expertly repair <strong>cell phones, tablets, and gaming consoles</strong> with upfront pricing and zero hassle.</p>
+                <div class="inline-block bg-green-100 border-2 border-green-500 text-green-900 px-4 py-2 rounded-lg font-bold text-xl shadow-sm">
+                    <i class="fas fa-check-circle mr-2"></i> Free Estimates & Honest Diagnostics
+                </div>
+                <div class="pt-4 flex flex-col sm:flex-row gap-4">
+                    <a href="#contact" class="bg-primary hover:bg-secondary text-white text-xl font-bold py-4 px-8 rounded-lg shadow-lg text-center transition flex items-center justify-center gap-2">
+                        <i class="fas fa-wrench"></i> Request a Repair Quote
+                    </a>
+                    <a href="tel:7058164357" class="bg-white border-4 border-primary text-primary hover:bg-gray-100 text-xl font-bold py-4 px-8 rounded-lg shadow text-center transition flex items-center justify-center gap-2">
+                        <i class="fas fa-phone-alt"></i> 705-816-HELP (4357)
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 w-full">
+                <!-- Visual Hardware Repair Card -->
+                <div class="bg-white p-8 rounded-2xl shadow-2xl border-4 border-primary space-y-6">
+                    <div class="flex items-center justify-between border-b-2 border-gray-200 pb-4">
+                        <span class="font-extrabold text-2xl text-dark">What We Repair Daily</span>
+                        <span class="bg-red-100 text-primary font-bold px-3 py-1 rounded-full text-sm uppercase">Barrie, ON</span>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-5 bg-red-50 p-4 rounded-xl border-2 border-red-200">
+                            <div class="bg-primary text-white h-16 w-16 rounded-xl flex items-center justify-center text-3xl shrink-0">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-extrabold text-dark">Cell Phones</h3>
+                                <p class="text-gray-700 text-base">iPhone, Samsung Galaxy, Google Pixel & more. Screens, batteries, charging ports & cameras.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-5 bg-red-50 p-4 rounded-xl border-2 border-red-200">
+                            <div class="bg-primary text-white h-16 w-16 rounded-xl flex items-center justify-center text-3xl shrink-0">
+                                <i class="fas fa-tablet-alt"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-extrabold text-dark">Tablets</h3>
+                                <p class="text-gray-700 text-base">Apple iPad, Samsung Galaxy Tab & e-Readers. Cracked glass, LCDs, batteries & buttons.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-5 bg-red-50 p-4 rounded-xl border-2 border-red-200">
+                            <div class="bg-primary text-white h-16 w-16 rounded-xl flex items-center justify-center text-3xl shrink-0">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-extrabold text-dark">Gaming Consoles</h3>
+                                <p class="text-gray-700 text-base">PlayStation 5, PS4, Xbox Series X/S & Nintendo Switch. HDMI ports, overheating & Joy-Con drift.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-8">
+            <h2 class="text-4xl font-extrabold border-b-4 border-primary inline-block pb-2">About Us</h2>
+            <p class="text-2xl text-gray-800 leading-relaxed font-medium">
+                Hi, I'm <strong>Mike</strong>, the technician behind <strong>For Repair Help</strong>—the sister company to <strong>For Tech Help</strong> here in <strong>Barrie, ON</strong>. With years of hands-on experience in professional mobile device and hardware repair, I started this service to offer our community an honest, reliable way to fix broken electronics without the upsells or runaround.
+            </p>
+            <p class="text-xl text-gray-700">
+                When your phone screen shatters, your iPad stops charging, or your gaming console loses video signal, you shouldn't have to buy a brand-new device. I specialize in precision repairs for <strong>cell phones, tablets, and gaming consoles</strong> using high-quality replacement parts, clear communication, and straightforward pricing you can trust.
+            </p>
+        </div>
+    </section>
+
+    <!-- Core Device Categories (Phones, Tablets, Gaming Consoles) -->
+    <section id="devices" class="py-20 bg-gray-100 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-extrabold border-b-4 border-primary inline-block pb-2">Devices We Repair</h2>
+                <p class="mt-4 text-2xl text-gray-800 font-bold">Expert hardware service across the three categories you rely on most.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Category 1: Cell Phones -->
+                <div class="bg-white p-8 rounded-2xl shadow-xl border-4 border-primary flex flex-col justify-between">
+                    <div>
+                        <div class="bg-red-100 text-primary w-20 h-20 rounded-2xl flex items-center justify-center text-4xl mb-6">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3 class="text-3xl font-extrabold mb-4">Cell Phones</h3>
+                        <p class="text-gray-800 text-lg mb-6">
+                            Don't let a cracked display or a battery that dies by noon slow you down. We repair all major smartphone brands with precision parts that keep your data intact.
+                        </p>
+                        <ul class="space-y-3 text-lg text-gray-800 mb-6">
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-primary mt-1.5"></i> <span><strong>Apple iPhone:</strong> All models (Screen, OLED, Battery, Back Glass, Face ID safe)</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-primary mt-1.5"></i> <span><strong>Samsung Galaxy:</strong> S-Series, Z-Series, A-Series & Note devices</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-primary mt-1.5"></i> <span><strong>Google Pixel & Motorola:</strong> Screens, charging ports, earpieces & cameras</span></li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="w-full bg-primary hover:bg-secondary text-white font-bold text-lg py-3 px-6 rounded-xl text-center transition block">
+                        Get a Phone Repair Quote
+                    </a>
+                </div>
+
+                <!-- Category 2: Tablets -->
+                <div class="bg-white p-8 rounded-2xl shadow-xl border-4 border-primary flex flex-col justify-between">
+                    <div>
+                        <div class="bg-red-100 text-primary w-20 h-20 rounded-2xl flex items-center justify-center text-4xl mb-6">
+                            <i class="fas fa-tablet-alt"></i>
+                        </div>
+                        <h3 class="text-3xl font-extrabold mb-4">Tablets</h3>
+                        <p class="text-gray-800 text-lg mb-6">
+                            From family iPads with spiderwebbed glass to work tablets that refuse to charge, we restore your tablet to factory-like responsiveness.
+                        </p>
+                        <ul class="space-y-3 text-lg text-gray-800 mb-6">
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-primary mt-1.5"></i> <span><strong>Apple iPad:</strong> Standard iPad, iPad Air, iPad Mini & iPad Pro</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-primary mt-1.5"></i> <span><strong>Samsung Galaxy Tab:</strong> Digitizer glass, full LCD assemblies & batteries</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-primary mt-1.5"></i> <span><strong>Port & Button Fixes:</strong> Broken charging tips extracted, power & volume buttons</span></li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="w-full bg-primary hover:bg-secondary text-white font-bold text-lg py-3 px-6 rounded-xl text-center transition block">
+                        Get a Tablet Repair Quote
+                    </a>
+                </div>
+
+                <!-- Category 3: Gaming Consoles -->
+                <div class="bg-white p-8 rounded-2xl shadow-xl border-4 border-primary flex flex-col justify-between">
+                    <div>
+                        <div class="bg-red-100 text-primary w-20 h-20 rounded-2xl flex items-center justify-center text-4xl mb-6">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <h3 class="text-3xl font-extrabold mb-4">Gaming Consoles</h3>
+                        <p class="text-gray-800 text-lg mb-6">
+                            Get back in the game fast. Whether your console has a damaged HDMI port, sounds like a jet engine, or won't read discs, we fix it right.
+                        </p>
+                        <ul class="space-y-3 text-lg text-gray-800 mb-6">
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-primary mt-1.5"></i> <span><strong>PlayStation (PS5 / PS4):</strong> HDMI port replacement, liquid metal/thermal paste & fan cleaning</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-primary mt-1.5"></i> <span><strong>Xbox (Series X/S & One):</strong> No-signal HDMI repairs, power supply & disc drives</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-primary mt-1.5"></i> <span><strong>Nintendo Switch:</strong> USB-C charging ports, LCD/OLED screens, SD readers & Joy-Con drift</span></li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="w-full bg-primary hover:bg-secondary text-white font-bold text-lg py-3 px-6 rounded-xl text-center transition block">
+                        Get a Console Repair Quote
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do (Common Repairs) Section -->
+    <section id="services" class="py-20 bg-red-50 border-y border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-extrabold border-b-4 border-primary inline-block pb-2">Common Repairs We Perform</h2>
+                <p class="mt-4 text-2xl text-gray-800 font-bold">Quality replacement parts and careful workmanship on every job.</p>
+                <p class="mt-2 text-xl text-primary font-bold">Contact us with your device model for a fast, exact quote.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Service 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg border-2 border-gray-200 hover:border-primary transition">
+                    <div class="text-primary text-5xl mb-6" aria-hidden="true"><i class="fas fa-mobile"></i></div>
+                    <h3 class="text-2xl font-bold mb-3">Screen Replacement</h3>
+                    <p class="text-gray-800 text-lg">Cracked glass, dead touchscreens, black spots, or flickering OLED/LCD displays on phones, tablets, and handheld consoles.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg border-2 border-gray-200 hover:border-primary transition">
+                    <div class="text-primary text-5xl mb-6" aria-hidden="true"><i class="fas fa-battery-full"></i></div>
+                    <h3 class="text-2xl font-bold mb-3">Battery Replacement</h3>
+                    <p class="text-gray-800 text-lg">Fix fast-draining batteries, unexpected shutdowns, or swollen batteries pushing up your phone or tablet screen.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg border-2 border-gray-200 hover:border-primary transition">
+                    <div class="text-primary text-5xl mb-6" aria-hidden="true"><i class="fas fa-plug"></i></div>
+                    <h3 class="text-2xl font-bold mb-3">Charging Ports</h3>
+                    <p class="text-gray-800 text-lg">Have to hold your cord at a weird angle to charge? We clean, repair, and replace loose USB-C and Lightning ports.</p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg border-2 border-gray-200 hover:border-primary transition">
+                    <div class="text-primary text-5xl mb-6" aria-hidden="true"><i class="fas fa-tv"></i></div>
+                    <h3 class="text-2xl font-bold mb-3">Console HDMI Ports</h3>
+                    <p class="text-gray-800 text-lg">Console turns on with a white or blue light, but the TV says "No Signal"? We replace bent or broken HDMI ports on PS5, PS4, and Xbox.</p>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg border-2 border-gray-200 hover:border-primary transition">
+                    <div class="text-primary text-5xl mb-6" aria-hidden="true"><i class="fas fa-fan"></i></div>
+                    <h3 class="text-2xl font-bold mb-3">Overheating & Tune-Ups</h3>
+                    <p class="text-gray-800 text-lg">Deep internal dust removal, fan replacement, and fresh thermal paste or liquid metal servicing so your console runs cool and quiet.</p>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg border-2 border-gray-200 hover:border-primary transition">
+                    <div class="text-primary text-5xl mb-6" aria-hidden="true"><i class="fas fa-crosshairs"></i></div>
+                    <h3 class="text-2xl font-bold mb-3">Controller & Stick Drift</h3>
+                    <p class="text-gray-800 text-lg">Fix characters walking or aiming on their own! We repair Nintendo Switch Joy-Cons, PS5 DualSense, and Xbox controllers.</p>
+                </div>
+
+                <!-- Service 7 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg border-2 border-gray-200 hover:border-primary transition">
+                    <div class="text-primary text-5xl mb-6" aria-hidden="true"><i class="fas fa-camera"></i></div>
+                    <h3 class="text-2xl font-bold mb-3">Cameras, Audio & Glass</h3>
+                    <p class="text-gray-800 text-lg">Shattered rear camera lenses, blurry/shaking cameras, muffled speakers, quiet microphones, and cracked back glass housings.</p>
+                </div>
+
+                <!-- Service 8 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg border-2 border-gray-200 hover:border-primary transition">
+                    <div class="text-primary text-5xl mb-6" aria-hidden="true"><i class="fas fa-tint-slash"></i></div>
+                    <h3 class="text-2xl font-bold mb-3">Water Damage & Data</h3>
+                    <p class="text-gray-800 text-lg">Dropped your device in water or have a dead phone with precious family photos? We perform ultrasonic cleaning and data recovery transfers.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Promise & Value Section -->
+    <section id="value" class="py-20 bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-4xl font-extrabold border-b-4 border-primary inline-block pb-2">The For Repair Help Difference</h2>
+                <p class="mt-4 text-2xl text-gray-800 font-medium">
+                    When you hand over your phone, tablet, or console to <strong>For Repair Help</strong>, we treat your device—and your personal data—like our own.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Value 1: Transparent Quotes -->
+                <div class="bg-gray-100 p-8 rounded-xl border-2 border-gray-200 flex flex-col sm:flex-row items-start gap-6">
+                    <div class="bg-primary text-white p-5 rounded-xl text-3xl shrink-0" aria-hidden="true">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-2">Upfront, Honest Pricing</h3>
+                        <p class="text-gray-800 text-lg">No surprise fees. Sometimes a "broken" charging port is just packed with pocket lint! If a simple cleaning fixes your issue, we tell you honestly instead of selling you a part you don't need.</p>
+                    </div>
+                </div>
+
+                <!-- Value 2: Quality Tested Parts -->
+                <div class="bg-gray-100 p-8 rounded-xl border-2 border-gray-200 flex flex-col sm:flex-row items-start gap-6">
+                    <div class="bg-primary text-white p-5 rounded-xl text-3xl shrink-0" aria-hidden="true">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-2">Quality Parts & Warranty</h3>
+                        <p class="text-gray-800 text-lg">We source premium replacement screens, batteries, and ports—and we stand behind our repairs with a solid workmanship and parts warranty.</p>
+                    </div>
+                </div>
+
+                <!-- Value 3: Written Repair & Care Report -->
+                <div class="bg-gray-100 p-8 rounded-xl border-2 border-gray-200 flex flex-col sm:flex-row items-start gap-6">
+                    <div class="bg-primary text-white p-5 rounded-xl text-3xl shrink-0" aria-hidden="true">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-2">Multi-Point Inspection Sheet</h3>
+                        <p class="text-gray-800 text-lg">Every repair includes a written diagnostic and post-repair checklist detailing what was replaced, how your device tested, and tips to protect it going forward.</p>
+                    </div>
+                </div>
+
+                <!-- Value 4: Data Privacy First -->
+                <div class="bg-gray-100 p-8 rounded-xl border-2 border-gray-200 flex flex-col sm:flex-row items-start gap-6">
+                    <div class="bg-primary text-white p-5 rounded-xl text-3xl shrink-0" aria-hidden="true">
+                        <i class="fas fa-user-lock"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-2">Your Data Stays Safe & Private</h3>
+                        <p class="text-gray-800 text-lg">Unlike manufacturer mail-in programs that wipe your device clean, our hardware repairs preserve your photos, contacts, messages, and game saves whenever possible.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sample Repair Reports Slideshow Section -->
+    <section id="sample-notes" class="py-20 bg-gray-100 border-b border-gray-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <div class="inline-flex items-center gap-2 bg-red-100 border-2 border-primary text-primary px-4 py-1.5 rounded-full font-bold text-base mb-3">
+                    <i class="fas fa-clipboard-list"></i> Complete Transparency With Every Repair
+                </div>
+                <h2 class="text-4xl font-extrabold border-b-4 border-primary inline-block pb-2">See Our Repair & Care Reports in Action</h2>
+                <p class="mt-4 text-xl text-gray-800 font-medium">
+                    Wondering what goes into a professional repair? Browse real examples of the diagnostic checklists and care sheets you receive when we fix your phone, tablet, or gaming console.
+                </p>
+            </div>
+
+            <!-- Slide Selector Tabs -->
+            <div class="bg-white p-4 sm:p-6 rounded-2xl shadow-md border-2 border-gray-200 mb-8">
+                <div class="flex flex-wrap justify-center gap-3">
+                    <button id="note-tab-0" onclick="showNoteSlide(0)" class="slide-tab-active bg-primary text-white font-extrabold px-5 py-3 rounded-xl shadow-md border-2 border-primary transition flex items-center gap-2 text-lg">
+                        <i class="fas fa-mobile-alt"></i> <span>Sample #1: iPhone Screen & Battery</span>
+                    </button>
+                    <button id="note-tab-1" onclick="showNoteSlide(1)" class="bg-white hover:bg-red-50 text-gray-800 font-bold px-5 py-3 rounded-xl shadow-sm border-2 border-gray-300 transition flex items-center gap-2 text-lg">
+                        <i class="fas fa-tablet-alt"></i> <span>Sample #2: iPad Charging Port</span>
+                    </button>
+                    <button id="note-tab-2" onclick="showNoteSlide(2)" class="bg-white hover:bg-red-50 text-gray-800 font-bold px-5 py-3 rounded-xl shadow-sm border-2 border-gray-300 transition flex items-center gap-2 text-lg">
+                        <i class="fas fa-gamepad"></i> <span>Sample #3: PS5 HDMI & Tune-Up</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- SLIDE 1: Cell Phone Repair (iPhone 15 Pro Screen & Battery) -->
+            <div id="note-slide-0" class="note-sheet-card bg-white p-6 sm:p-10 rounded-2xl shadow-2xl border-4 border-gray-300 max-w-4xl mx-auto">
+                <!-- Letterhead -->
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b-4 border-primary pb-4 mb-6 gap-4">
+                    <div class="flex items-center gap-3.5">
+                        <div class="flex items-center gap-3">
+                            <div class="flex items-center justify-center bg-primary text-white font-extrabold text-2xl h-14 w-14 rounded-xl shadow">FRH</div>
+                            <div class="flex flex-col">
+                                <span class="font-black text-2xl text-dark tracking-tight leading-none">FOR REPAIR HELP</span>
+                                <span class="text-xs font-bold text-gray-500 uppercase tracking-widest mt-1">Phones • Tablets • Consoles</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sm:text-right text-sm space-y-1 w-full sm:w-auto">
+                        <div class="text-xl font-extrabold text-primary"><i class="fas fa-phone-alt mr-1"></i> 705-816-HELP (4357)</div>
+                        <div class="font-bold text-gray-800">contact@ForRepair.Help | www.ForRepair.Help</div>
+                        <div class="pt-2 flex sm:justify-end items-end gap-2">
+                            <span class="font-bold text-gray-700">Lead Tech:</span>
+                            <span class="handwritten-note border-b-2 border-gray-800 px-4 pb-0.5 inline-block min-w-[130px] text-center">Mike</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Client Info Bar -->
+                <div class="bg-red-50 border-2 border-red-200 rounded-xl p-4 mb-6 grid grid-cols-1 md:grid-cols-12 gap-4">
+                    <div class="md:col-span-4">
+                        <span class="text-xs font-extrabold uppercase text-gray-500 block">Client Name</span>
+                        <div class="handwritten-note border-b-2 border-gray-400 pb-0.5">Jason Miller</div>
+                    </div>
+                    <div class="md:col-span-3">
+                        <span class="text-xs font-extrabold uppercase text-gray-500 block">Date Completed</span>
+                        <div class="handwritten-note border-b-2 border-gray-400 pb-0.5">Oct 15, 2026</div>
+                    </div>
+                    <div class="md:col-span-5">
+                        <span class="text-xs font-extrabold uppercase text-gray-500 block">Device & Repair Performed</span>
+                        <div class="handwritten-note border-b-2 border-gray-400 pb-0.5">iPhone 15 Pro — OLED Screen & Battery</div>
+                    </div>
+                </div>
+
+                <!-- 6-Step Work Log Table -->
+                <div class="mb-6">
+                    <div class="bg-primary text-white font-extrabold px-4 py-2 rounded-t-xl flex justify-between items-center">
+                        <span><i class="fas fa-tools mr-2"></i> COMPLETED REPAIR & QUALITY CHECKLIST</span>
+                        <span class="text-xs uppercase tracking-wider opacity-90">Cell Phone Service</span>
+                    </div>
+                    <div class="border-2 border-t-0 border-gray-300 rounded-b-xl divide-y-2 divide-gray-200">
+                        <div class="p-3.5 flex items-start gap-3.5">
+                            <span class="bg-primary text-white font-extrabold rounded-full w-8 h-8 flex items-center justify-center shrink-0 mt-1">1</span>
+                            <p class="handwritten-note">Removed shattered front screen assembly and cleaned glass fragments from inner frame bezel.</p>
+                        </div>
+                        <div class="p-3.5 flex items-start gap-3.5">
+                            <span class="bg-primary text-white font-extrabold rounded-full w-8 h-8 flex items-center justify-center shrink-0 mt-1">2</span>
+                            <p class="handwritten-note">Carefully transferred original proximity sensor & ambient light module so <strong>Face ID works 100%</strong>.</p>
+                        </div>
+                        <div class="p-3.5 flex items-start gap-3.5">
+                            <span class="bg-primary text-white font-extrabold rounded-full w-8 h-8 flex items-center justify-center shrink-0 mt-1">3</span>
+                            <p class="handwritten-note">Replaced degraded battery (was at 76% health) with a brand-new 0-cycle high-capacity cell.</p>
+                        </div>
+                        <div class="p-3.5 flex items-start gap-3.5">
+                            <span class="bg-primary text-white font-extrabold rounded-full w-8 h-8 flex items-center justify-center shrink-0 mt-1">4</span>
+                            <p class="handwritten-note">Installed fresh water/dust-resistant perimeter adhesive gasket seal before closing display.</p>
+                        </div>
+                        <div class="p-3.5 flex items-start gap-3.5">
+                            <span class="bg-primary text-white font-extrabold rounded-full w-8 h-8 flex items-center justify-center shrink-0 mt-1">5</span>
+                            <p class="handwritten-note">Cleaned compacted pocket lint out of bottom USB-C port and speaker mesh grilles (complimentary!).</p>
+                        </div>
+                        <div class="p-3.5 flex items-start gap-3.5">
+                            <span class="bg-primary text-white font-extrabold rounded-full w-8 h-8 flex items-center justify-center shrink-0 mt-1">6</span>
+                            <p class="handwritten-note">Applied a complimentary <strong>9H Tempered Glass Screen Protector</strong> with zero dust bubbles.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notes & Quick Reference -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-6">
+                    <div class="md:col-span-7 bg-gray-50 p-4 rounded-xl border-2 border-gray-200">
+                        <h4 class="font-extrabold text-dark border-b-2 border-primary pb-1 mb-3 uppercase text-sm">
+                            <i class="fas fa-lightbulb text-primary mr-1"></i> Post-Repair Care Tips
+                        </h4>
+                        <ul class="space-y-2 handwritten-note list-disc list-inside">
+                            <li>All of your photos, apps, and messages were 100% preserved during the repair.</li>
+                            <li>Avoid submerging the phone in water—even factory seals weaken after a drop impact.</li>
+                            <li>Use a certified USB-C PD charger block to keep your new battery healthy for years!</li>
+                        </ul>
+                    </div>
+                    <div class="md:col-span-5 bg-red-50 p-4 rounded-xl border-2 border-red-200 flex flex-col justify-between">
+                        <div>
+                            <h4 class="font-extrabold text-primary border-b-2 border-red-300 pb-1 mb-3 uppercase text-sm">
+                                <i class="fas fa-check-double mr-1"></i> Post-Repair QC Pass
+                            </h4>
+                            <div class="space-y-2 text-sm">
+                                <div>
+                                    <span class="font-bold text-gray-600 block text-xs uppercase">Touch & True Tone Display:</span>
+                                    <span class="handwritten-note">PASSED — 120Hz Smooth & Bright</span>
+                                </div>
+                                <div>
+                                    <span class="font-bold text-gray-600 block text-xs uppercase">Cameras, Mic & Face ID:</span>
+                                    <span class="handwritten-note">PASSED — Tested Front & Rear</span>
+                                </div>
+                                <div>
+                                    <span class="font-bold text-gray-600 block text-xs uppercase">Battery Draw & Charging:</span>
+                                    <span class="handwritten-note">PASSED — Fast Charging @ 20W</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer Warranty Tracker -->
+                <div class="bg-gray-100 border-2 border-primary rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div class="text-sm space-y-1">
+                        <div class="font-extrabold text-primary text-base">❤️ Included With Your Repair:</div>
+                        <p class="text-gray-800">• <strong>Parts & Workmanship Warranty:</strong> Covered against any manufacturing or installation defects.</p>
+                        <p class="text-gray-800">• <strong>Need Tech Lessons?</strong> Ask about our sister company, <strong>ForTech.Help</strong>!</p>
+                    </div>
+                    <div class="bg-white border-2 border-gray-300 rounded-lg p-3 shrink-0 w-full sm:w-auto text-center">
+                        <div class="text-xs font-extrabold uppercase text-gray-500">Ticket Status</div>
+                        <div class="handwritten-note text-2xl text-green-700 font-bold">Ready for Pickup ✓</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 2: Tablet Repair (iPad Air Charging Port & Glass) -->
+            <div id="note-slide-1" class="hidden note-sheet-card bg-white p-6 sm:p-10 rounded-2xl shadow-2xl border-4 border-gray-300 max-w-4xl mx-auto">
+                <!-- Letterhead -->
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b-4 border-primary pb-4 mb-6 gap-4">
+                    <div class="flex items-center gap-3.5">
+                        <div class="flex items-center gap-3">
+                            <div class="flex items-center justify-center bg-primary text-white font-extrabold text-2xl h-14 w-14 rounded-xl shadow">FRH</div>
+                            <div class="flex flex-col">
+                                <span class="font-black text-2xl text-dark tracking-tight leading-none">FOR REPAIR HELP</span>
+                                <span class="text-xs font-bold text-gray-500 uppercase tracking-widest mt-1">Phones • Tablets • Consoles</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sm:text-right text-sm space-y-1 w-full sm:w-auto">
+                        <div class="text-xl font-extrabold text-primary"><i class="fas fa-phone-alt mr-1"></i> 705-816-HELP (4357)</div>
+                        <div class="font-bold text-gray-800">contact@ForRepair.Help | www.ForRepair.Help</div>
+                        <div class="pt-2 flex sm:justify-end items-end gap-2">
+                            <span class="font-bold text-gray-700">Lead Tech:</span>
+                            <span class="handwritten-note border-b-2 border-gray-800 px-4 pb-0.5 inline-block min-w-[130px] text-center">Mike</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Client Info Bar -->
+                <div class="bg-red-50 border-2 border-red-200 rounded-xl p-4 mb-6 grid grid-cols-1 md:grid-cols-12 gap-4">
+                    <div class="md:col-span-4">
+                        <span class="text-xs font-extrabold uppercase text-gray-500 block">Client Name</span>
+                        <div class="handwritten-note border-b-2 border-gray-400 pb-0.5">Sarah & Liam Patel</div>
+                    </div>
+                    <div class="md:col-span-3">
+                        <span class="text-xs font-extrabold uppercase text-gray-500 block">Date Completed</span>
+                        <div class="handwritten-note border-b-2 border-gray-400 pb-0.5">Oct 17, 2026</div>
+                    </div>
+                    <div class="md:col-span-5">
+                        <span class="text-xs font-extrabold uppercase text-gray-500 block">Device & Repair Performed</span>
+                        <div class="handwritten-note border-b-2 border-gray-400 pb-0.5">iPad (9th Gen) — Glass Digitizer & Port</div>
+                    </div>
+                </div>
+
+                <!-- 6-Step Work Log Table -->
+                <div class="mb-6">
+                    <div class="bg-primary text-white font-extrabold px-4 py-2 rounded-t-xl flex justify-between items-center">
+                        <span><i class="fas fa-tools mr-2"></i> COMPLETED REPAIR & QUALITY CHECKLIST</span>
+                        <span class="text-xs uppercase tracking-wider opacity-90">Tablet Service</span>
+                    </div>
+                    <div class="border-2 border-t-0 border-gray-300 rounded-b-xl divide-y-2 divide-gray-200">
+                        <div class="p-3.5 flex items-start gap-3.5">
+                            <span class="bg-primary text-white font-extrabold rounded-full w-8 h-8 flex items-center justify-center shrink-0 mt-1">1</span>
+                            <p class="handwritten-note">Extracted broken metal Lightning charger tip that was snapped off deep inside the charging port.</p>
+                        </div>
+                        <div class="p-3.5 flex items-start gap-3.5">
+                            <span class="bg-primary text-white font-extrabold rounded-full w-8 h-8 flex items-center justify-center shrink-0 mt-1">2</span>
+                            <p class="handwritten-note">Safely heated and removed the cracked outer touch glass without damaging the original LCD underneath.</p>
+                        </div>
+                        <div class="p-3.5 flex items-start gap-3.5">
+                            <span class="bg-primary text-white font-extrabold rounded-full w-8 h-8 flex items-center justify-center shrink-0 mt-1">3</span>
+                            <p class="handwritten-note">Reshaped the dented bottom-right aluminum corner using precision frame-correction tools so glass sits flat.</p>
+                        </div>
+                        <div class="p-3.5 flex items-start gap-3.5">
+                            <span class="bg-primary text-white font-extrabold rounded-full w-8 h-8 flex items-center justify-center shrink-0 mt-1">4</span>
+                            <p class="handwritten-note">Transferred original Home Button assembly and secured it with a new bracket so <strong>Touch ID still works</strong>.</p>
+                        </div>
+                        <div class="p-3.5 flex items-start gap-3.5">
+                            <span class="bg-primary text-white font-extrabold rounded-full w-8 h-8 flex items-center justify-center shrink-0 mt-1">5</span>
+                            <p class="handwritten-note">Bonded brand-new digitizer glass using high-strength Tesa adhesive so the screen never lifts at the edges.</p>
+                        </div>
+                        <div class="p-3.5 flex items-start gap-3.5">
+                            <span class="bg-primary text-white font-extrabold rounded-full w-8 h-8 flex items-center justify-center shrink-0 mt-1">6</span>
+                            <p class="handwritten-note">Tested Apple Pencil drawing across every millimeter of the screen and charged battery to 100%.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notes & Quick Reference -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-6">
+                    <div class="md:col-span-7 bg-gray-50 p-4 rounded-xl border-2 border-gray-200">
+                        <h4 class="font-extrabold text-dark border-b-2 border-primary pb-1 mb-3 uppercase text-sm">
+                            <i class="fas fa-lightbulb text-primary mr-1"></i> Post-Repair Care Tips
+                        </h4>
+                        <ul class="space-y-2 handwritten-note list-disc list-inside">
+                            <li>Because the charging pins inside were undamaged once we extracted the broken plug tip, you didn't need a full port replacement—saved you $75!</li>
+                            <li>Wait 12 hours before putting a tight rugged case back on so the frame adhesive fully cures.</li>
+                        </ul>
+                    </div>
+                    <div class="md:col-span-5 bg-red-50 p-4 rounded-xl border-2 border-red-200 flex flex-col justify-between">
+                        <div>
+                            <h4 class="font-extrabold text-primary border-b-2 border-red-300 pb-1 mb-3 uppercase text-sm">
+                                <i class="fas fa-check-double mr-1"></i> Post-Repair QC Pass
+                            </h4>
+                            <div class="space-y-2 text-sm">
+                                <div>
+                                    <span class="font-bold text-gray-600 block text-xs uppercase">Multi-Touch & Apple Pencil:</span>
+                                    <span class="handwritten-note">PASSED — Zero Dead Zones</span>
+                                </div>
+                                <div>
+                                    <span class="font-bold text-gray-600 block text-xs uppercase">Home Button & Touch ID:</span>
+                                    <span class="handwritten-note">PASSED — Tactile Click Verified</span>
+                                </div>
+                                <div>
+                                    <span class="font-bold text-gray-600 block text-xs uppercase">Port Amperage Test:</span>
+                                    <span class="handwritten-note">PASSED — Solid 2.4A Charge Draw</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer Warranty Tracker -->
+                <div class="bg-gray-100 border-2 border-primary rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div class="text-sm space-y-1">
+                        <div class="font-extrabold text-primary text-base">❤️ Included With Your Repair:</div>
+                        <p class="text-gray-800">• <strong>Parts & Workmanship Warranty:</strong> Covered against any manufacturing or installation defects.</p>
+                        <p class="text-gray-800">• <strong>Need Tech Lessons?</strong> Ask about our sister company, <strong>ForTech.Help</strong>!</p>
+                    </div>
+                    <div class="bg-white border-2 border-gray-300 rounded-lg p-3 shrink-0 w-full sm:w-auto text-center">
+                        <div class="text-xs font-extrabold uppercase text-gray-500">Ticket Status</div>
+                        <div class="handwritten-note text-2xl text-green-700 font-bold">Ready for Pickup ✓</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 3: Gaming Console Repair (PlayStation 5 HDMI Port & Cooling Service) -->
+            <div id="note-slide-2" class="hidden note-sheet-card bg-white p-6 sm:p-10 rounded-2xl shadow-2xl border-4 border-gray-300 max-w-4xl mx-auto">
+                <!-- Letterhead -->
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b-4 border-primary pb-4 mb-6 gap-4">
+                    <div class="flex items-center gap-3.5">
+                        <div class="flex items-center gap-3">
+                            <div class="flex items-center justify-center bg-primary text-white font-extrabold text-2xl h-14 w-14 rounded-xl shadow">FRH</div>
+                            <div class="flex flex-col">
+                                <span class="font-black text-2xl text-dark tracking-tight leading-none">FOR REPAIR HELP</span>
+                                <span class="text-xs font-bold text-gray-500 uppercase tracking-widest mt-1">Phones • Tablets • Consoles</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sm:text-right text-sm space-y-1 w-full sm:w-auto">
+                        <div class="text-xl font-extrabold text-primary"><i class="fas fa-phone-alt mr-1"></i> 705-816-HELP (4357)</div>
+                        <div class="font-bold text-gray-800">contact@ForRepair.Help | www.ForRepair.Help</div>
+                        <div class="pt-2 flex sm:justify-end items-end gap-2">
+                            <span class="font-bold text-gray-700">Lead Tech:</span>
+                            <span class="handwritten-note border-b-2 border-gray-800 px-4 pb-0.5 inline-block min-w-[130px] text-center">Mike</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Client Info Bar -->
+                <div class="bg-red-50 border-2 border-red-200 rounded-xl p-4 mb-6 grid grid-cols-1 md:grid-cols-12 gap-4">
+                    <div class="md:col-span-4">
+                        <span class="text-xs font-extrabold uppercase text-gray-500 block">Client Name</span>
+                        <div class="handwritten-note border-b-2 border-gray-400 pb-0.5">Tyler & Chris Evans</div>
+                    </div>
+                    <div class="md:col-span-3">
+                        <span class="text-xs font-extrabold uppercase text-gray-500 block">Date Completed</span>
+                        <div class="handwritten-note border-b-2 border-gray-400 pb-0.5">Oct 19, 2026</div>
+                    </div>
+                    <div class="md:col-span-5">
+                        <span class="text-xs font-extrabold uppercase text-gray-500 block">Device & Repair Performed</span>
+                        <div class="handwritten-note border-b-2 border-gray-400 pb-0.5">PlayStation 5 — HDMI Port & Deep Clean</div>
+                    </div>
+                </div>
+
+                <!-- 6-Step Work Log Table -->
+                <div class="mb-6">
+                    <div class="bg-primary text-white font-extrabold px-4 py-2 rounded-t-xl flex justify-between items-center">
+                        <span><i class="fas fa-tools mr-2"></i> COMPLETED REPAIR & QUALITY CHECKLIST</span>
+                        <span class="text-xs uppercase tracking-wider opacity-90">Gaming Console Service</span>
+                    </div>
+                    <div class="border-2 border-t-0 border-gray-300 rounded-b-xl divide-y-2 divide-gray-200">
+                        <div class="p-3.5 flex items-start gap-3.5">
+                            <span class="bg-primary text-white font-extrabold rounded-full w-8 h-8 flex items-center justify-center shrink-0 mt-1">1</span>
+                            <p class="handwritten-note">Disassembled PS5 down to the motherboard; confirmed internal HDMI pins were pushed back ("White Light / No Signal").</p>
+                        </div>
+                        <div class="p-3.5 flex items-start gap-3.5">
+                            <span class="bg-primary text-white font-extrabold rounded-full w-8 h-8 flex items-center justify-center shrink-0 mt-1">2</span>
+                            <p class="handwritten-note">Desoldered damaged factory HDMI port using hot-air rework station and wicked motherboard pads clean.</p>
+                        </div>
+                        <div class="p-3.5 flex items-start gap-3.5">
+                            <span class="bg-primary text-white font-extrabold rounded-full w-8 h-8 flex items-center justify-center shrink-0 mt-1">3</span>
+                            <p class="handwritten-note">Micro-soldered a reinforced heavy-duty <strong>HDMI 2.1 port</strong> and verified all 19 pins under microscope.</p>
+                        </div>
+                        <div class="p-3.5 flex items-start gap-3.5">
+                            <span class="bg-primary text-white font-extrabold rounded-full w-8 h-8 flex items-center justify-center shrink-0 mt-1">4</span>
+                            <p class="handwritten-note">Respread dry spot in APU <strong>Liquid Metal thermal interface</strong> so the processor cools evenly again.</p>
+                        </div>
+                        <div class="p-3.5 flex items-start gap-3.5">
+                            <span class="bg-primary text-white font-extrabold rounded-full w-8 h-8 flex items-center justify-center shrink-0 mt-1">5</span>
+                            <p class="handwritten-note">Cleared thick dust blanket out of internal power supply vents and copper heatsink fins.</p>
+                        </div>
+                        <div class="p-3.5 flex items-start gap-3.5">
+                            <span class="bg-primary text-white font-extrabold rounded-full w-8 h-8 flex items-center justify-center shrink-0 mt-1">6</span>
+                            <p class="handwritten-note">Ran 45-minute 4K @ 120Hz gaming stress test—crystal-clear video output and whisper-quiet fan!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notes & Quick Reference -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-6">
+                    <div class="md:col-span-7 bg-gray-50 p-4 rounded-xl border-2 border-gray-200">
+                        <h4 class="font-extrabold text-dark border-b-2 border-primary pb-1 mb-3 uppercase text-sm">
+                            <i class="fas fa-lightbulb text-primary mr-1"></i> Post-Repair Care Tips
+                        </h4>
+                        <ul class="space-y-2 handwritten-note list-disc list-inside">
+                            <li>Always unplug the HDMI cable before moving or packing the PS5—tugging on the cord is the #1 cause of broken HDMI ports!</li>
+                            <li>Keep at least 4 to 6 inches of open breathing room behind the console inside your TV stand.</li>
+                        </ul>
+                    </div>
+                    <div class="md:col-span-5 bg-red-50 p-4 rounded-xl border-2 border-red-200 flex flex-col justify-between">
+                        <div>
+                            <h4 class="font-extrabold text-primary border-b-2 border-red-300 pb-1 mb-3 uppercase text-sm">
+                                <i class="fas fa-check-double mr-1"></i> Post-Repair QC Pass
+                            </h4>
+                            <div class="space-y-2 text-sm">
+                                <div>
+                                    <span class="font-bold text-gray-600 block text-xs uppercase">4K / 120Hz HDR Output:</span>
+                                    <span class="handwritten-note">PASSED — Zero Signal Flicker</span>
+                                </div>
+                                <div>
+                                    <span class="font-bold text-gray-600 block text-xs uppercase">Thermal & Fan Acoustics:</span>
+                                    <span class="handwritten-note">PASSED — Quiet Under Load</span>
+                                </div>
+                                <div>
+                                    <span class="font-bold text-gray-600 block text-xs uppercase">Disc Drive & Wi-Fi / BT:</span>
+                                    <span class="handwritten-note">PASSED — Tested & Verified</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer Warranty Tracker -->
+                <div class="bg-gray-100 border-2 border-primary rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div class="text-sm space-y-1">
+                        <div class="font-extrabold text-primary text-base">❤️ Included With Your Repair:</div>
+                        <p class="text-gray-800">• <strong>Parts & Workmanship Warranty:</strong> Covered against any manufacturing or installation defects.</p>
+                        <p class="text-gray-800">• <strong>Need Tech Lessons?</strong> Ask about our sister company, <strong>ForTech.Help</strong>!</p>
+                    </div>
+                    <div class="bg-white border-2 border-gray-300 rounded-lg p-3 shrink-0 w-full sm:w-auto text-center">
+                        <div class="text-xs font-extrabold uppercase text-gray-500">Ticket Status</div>
+                        <div class="handwritten-note text-2xl text-green-700 font-bold">Ready for Pickup ✓</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Sister Company Cross-Promotion Callout -->
+    <section class="py-16 bg-red-50 border-b border-gray-200">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white p-8 md:p-10 rounded-2xl shadow-xl border-4 border-primary flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="space-y-3">
+                    <div class="uppercase tracking-widest text-primary font-extrabold text-sm">Looking for 1-on-1 Tech Lessons or In-Home Setup?</div>
+                    <h3 class="text-3xl font-extrabold text-dark">Visit Our Sister Company: For Tech Help</h3>
+                    <p class="text-xl text-gray-800">
+                        Need patient, jargon-free training on how to use your computer, smartphone, printer, or Smart TV? Check out <strong>ForTech.Help</strong>—home of the <em>Senior Scrollers</em> community program!
+                    </p>
+                </div>
+                <div class="shrink-0">
+                    <a href="https://fortech.help" target="_blank" rel="noopener noreferrer" class="inline-block bg-blue-700 hover:bg-blue-800 text-white text-xl font-bold py-4 px-8 rounded-xl shadow-lg transition text-center">
+                        <i class="fas fa-hands-helping mr-2"></i> Visit ForTech.Help
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <h2 class="text-4xl font-extrabold text-center mb-12 border-b-4 border-primary inline-block pb-2">Frequently Asked Questions</h2>
+            
+            <div class="space-y-6">
+                <div class="bg-gray-100 p-8 rounded-lg border-2 border-gray-200">
+                    <h3 class="text-2xl font-bold text-dark mb-3"><i class="fas fa-question-circle text-primary mr-2" aria-hidden="true"></i> How do I get a price quote for my repair?</h3>
+                    <p class="text-xl text-gray-800 font-medium">Because part costs vary by exact model, simply call us at <strong>705-816-HELP (4357)</strong> or send a message using the form below with your device model (for example, "iPhone 14", "Samsung Tab A8", or "PlayStation 5") and what's happening. We'll give you a clear, upfront quote before any work begins.</p>
+                </div>
+
+                <div class="bg-gray-100 p-8 rounded-lg border-2 border-gray-200">
+                    <h3 class="text-2xl font-bold text-dark mb-3"><i class="fas fa-question-circle text-primary mr-2" aria-hidden="true"></i> Will I lose my photos, contacts, or game saves during a repair?</h3>
+                    <p class="text-xl text-gray-800 font-medium">In the vast majority of hardware repairs—like screen replacements, batteries, charging ports, and console HDMI ports—<strong>all of your data stays 100% untouched</strong>. We never wipe your device without asking you first.</p>
+                </div>
+                
+                <div class="bg-gray-100 p-8 rounded-lg border-2 border-gray-200">
+                    <h3 class="text-2xl font-bold text-dark mb-3"><i class="fas fa-question-circle text-primary mr-2" aria-hidden="true"></i> How long do repairs usually take?</h3>
+                    <p class="text-xl text-gray-800 font-medium">Many common phone screen and battery repairs can be completed the same day when parts are in stock! Tablet glass adhesive curing and gaming console micro-soldering (like HDMI ports) typically take 24 to 48 hours so we can thoroughly test your device before returning it.</p>
+                </div>
+
+                <div class="bg-gray-100 p-8 rounded-lg border-2 border-gray-200">
+                    <h3 class="text-2xl font-bold text-dark mb-3"><i class="fas fa-question-circle text-primary mr-2" aria-hidden="true"></i> What if my device is beyond repair or not worth fixing?</h3>
+                    <p class="text-xl text-gray-800 font-medium">I will always be 100% honest with you. If a repair costs more than the device is worth, I will let you know right away and can help you transfer your data onto a replacement device instead.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hours, Location & Contact/Booking Section -->
+    <section id="contact" class="py-20 bg-gray-900 text-white border-t-8 border-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16">
+            
+            <!-- Contact Info -->
+            <div>
+                <h2 class="text-4xl font-extrabold border-b-4 border-red-400 inline-block pb-2 mb-8 text-white">Get a Repair Quote</h2>
+                <p class="text-2xl mb-4 font-medium">Have a broken cell phone, tablet, or gaming console? Call, email, or fill out the form for a fast, honest estimate.</p>
+                <p class="text-xl mb-8 font-bold text-red-300">Fast Turnaround • Quality Parts • Honest Diagnostics</p>
+                
+                <div class="space-y-8 text-xl">
+                    <div class="flex items-center gap-6 bg-gray-800 p-4 rounded-lg border border-gray-700">
+                        <div class="bg-primary p-5 rounded-full text-2xl" aria-hidden="true"><i class="fas fa-phone-alt"></i></div>
+                        <div>
+                            <div class="font-bold text-gray-400 text-sm uppercase tracking-wider mb-1">Phone</div>
+                            <a href="tel:7058164357" class="font-bold text-2xl hover:text-red-300 transition focus:underline focus:outline-none">705-816-HELP (4357)</a>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center gap-6 bg-gray-800 p-4 rounded-lg border border-gray-700">
+                        <div class="bg-primary p-5 rounded-full text-2xl" aria-hidden="true"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <div class="font-bold text-gray-400 text-sm uppercase tracking-wider mb-1">Email</div>
+                            <a href="mailto:contact@ForRepair.Help" class="font-bold text-2xl hover:text-red-300 transition focus:underline focus:outline-none">contact@ForRepair.Help</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-6 bg-gray-800 p-4 rounded-lg border border-gray-700">
+                        <div class="bg-primary p-5 rounded-full text-2xl" aria-hidden="true"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <div class="font-bold text-gray-400 text-sm uppercase tracking-wider mb-1">Service Area</div>
+                            <span class="font-bold text-xl">Serving Barrie, ON & Surrounding Areas <br><span class="text-lg font-normal text-gray-300">Convenient local drop-off or pickup/delivery options available!</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Smart Contact Form (Web3Forms) -->
+            <div class="bg-white p-8 md:p-10 rounded-xl shadow-2xl text-dark border-4 border-gray-200">
+                <h3 class="text-3xl font-extrabold mb-6 text-center text-black">Request a Free Repair Quote</h3>
+                
+                <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+                    <!-- Web3Forms Access Key -->
+                    <input type="hidden" name="access_key" value="2ab9aa9e-93a7-4c01-91db-94e21780d49b">
+                    <input type="hidden" name="subject" value="New Repair Quote Request - ForRepair.Help">
+                    <!-- Honeypot Spam Protection -->
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                    <div>
+                        <label for="name" class="block text-2xl font-bold text-gray-900 mb-2">Your Name</label>
+                        <input type="text" id="name" name="name" required class="w-full px-4 py-4 border-2 border-gray-400 rounded-lg text-xl focus:outline-none focus:border-primary focus:ring-4 focus:ring-red-200 transition">
+                    </div>
+
+                    <div>
+                        <label for="phone" class="block text-2xl font-bold text-gray-900 mb-2">Your Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required class="w-full px-4 py-4 border-2 border-gray-400 rounded-lg text-xl focus:outline-none focus:border-primary focus:ring-4 focus:ring-red-200 transition">
+                    </div>
+
+                    <div>
+                        <label for="device_type" class="block text-2xl font-bold text-gray-900 mb-2">Device Type & Model</label>
+                        <input type="text" id="device_type" name="device_type" placeholder="e.g., iPhone 14, iPad Air, PS5, Nintendo Switch" required class="w-full px-4 py-4 border-2 border-gray-400 rounded-lg text-xl focus:outline-none focus:border-primary focus:ring-4 focus:ring-red-200 transition">
+                    </div>
+
+                    <div>
+                        <label for="email" class="block text-2xl font-bold text-gray-900 mb-2">Your Email (Optional)</label>
+                        <input type="email" id="email" name="email" class="w-full px-4 py-4 border-2 border-gray-400 rounded-lg text-xl focus:outline-none focus:border-primary focus:ring-4 focus:ring-red-200 transition">
+                    </div>
+
+                    <div>
+                        <label for="message" class="block text-2xl font-bold text-gray-900 mb-2">What issue is your device having?</label>
+                        <textarea id="message" name="message" rows="3" placeholder="e.g., Cracked screen, won't charge, broken HDMI port..." required class="w-full px-4 py-4 border-2 border-gray-400 rounded-lg text-xl focus:outline-none focus:border-primary focus:ring-4 focus:ring-red-200 transition"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-primary hover:bg-secondary text-white text-3xl font-extrabold py-6 px-8 rounded-lg shadow-xl transition duration-300 border-4 border-transparent focus:border-black focus:outline-none focus:ring-4 focus:ring-red-300">
+                        Request My Quote
+                    </button>
+                    <p class="text-lg text-gray-700 text-center mt-4 font-bold">We will call or email you back as soon as possible.</p>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-gray-300 py-8 text-center border-t border-gray-800 space-y-2">
+        <p class="text-xl font-bold">&copy; 2026 For Repair Help. All rights reserved.</p>
+        <p class="text-md text-gray-400">Proudly serving Barrie, ON and surrounding areas | Sister Company to <a href="https://fortech.help" class="text-red-400 hover:underline font-bold">For Tech Help (ForTech.Help)</a></p>
+    </footer>
+
+</body>
+</html>
